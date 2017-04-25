@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import toba.Beans.User; //import the Java beans Class library
 import toba.Data.UserDB; //import the Java Data Class library
-import toba.Data.Account; //import the Java Data Class library
-import toba.Data.AccountDB;
+import toba.Beans.Account; //import the Java Data Class library
+import toba.Data.AccountDB; //import the Java Data Class library
 /**
     Name: John M Delia Jr
     SPC Student ID: 434299
@@ -127,6 +127,8 @@ public class NewCustomerServlet extends HttpServlet {
             request.setAttribute("message", message);
             //set the user Attributes to sesson scope
             session.setAttribute("user", user);
+            //set the account Attributes to sesson scope
+            session.setAttribute("account", account);
         }
 
         //get the information from the form

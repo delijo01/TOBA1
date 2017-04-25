@@ -8,10 +8,13 @@ package toba.Packages;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import toba.Beans.User; //import the Java beans Class library
 import toba.Data.UserDB; //import the Java Data Class library
@@ -49,10 +52,15 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         //set the url
         String url = "/index.jsp";
+        
+        //create the session scope
+        HttpSession session = request.getSession();
         //set the userid
-        String userid = "jsmith@toba.com";
+        //String userid = "jsmith@toba.com";
+        String userid = (String) session.getAttribute("username");
         //set the password
-        String pw = "letmein";
+        //String pw = "letmein";
+        String pw = (String) session.getAttribute("password");  
         //Create a condition to look for the username and password specified
         if( username.equals(userid) && password.equals(pw) ) {
             //set the url

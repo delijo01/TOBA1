@@ -44,6 +44,17 @@ and open the template in the editor.
         <p>You are not logged into the system</p>
     </c:otherwise>
 </c:choose>
-
+        <form action="index.jsp" method="post">
+            <label>First Name:</label>
+            <span>${user.firstName}</span><br>
+            <label>Last Name:</label>
+            <span>${user.lastName}</span><br>
+            <label>Current Checking Balance:</label>
+            <span>${account.Checking}</span><br>
+            <label>Current Savings Balance:</label>
+            <span>${account.Savings}</span><br>
+            
+            <input type="submit" value ="return to main menu">
+        </form>
 <!-- Add the footer to the page -->        
 <c:import url="/includes/footer.jsp" />

@@ -37,7 +37,7 @@ and open the template in the editor.
                 <!--Created a label for the Username input-->
                 <label id="lblUsername1" title="Username">Username: </label>
                 <!--Created the input for the Username type = text-->
-                <input type="text" id="txtUsername1" name="userName"><br>
+                <input type="text" id="txtUsername1" name="username"><br>
                 <!--Created a label for the password input-->
                 <label id="lblPW1" title="password" >Password: </label>
                 <!--Created the input for the Username type = text-->

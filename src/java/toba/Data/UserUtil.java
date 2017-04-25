@@ -9,9 +9,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- *
- * @author delijo01
+    Name: John M Delia Jr
+    SPC Student ID: 434299
+    Course COP 2806 - Java Web Applications
  */
+
 public class UserUtil {
     private static final EntityManagerFactory emf =
         Persistence.createEntityManagerFactory("emailListPU");

@@ -5,6 +5,7 @@
  */
 package toba.Data;
 
+import toba.Beans.Account;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
