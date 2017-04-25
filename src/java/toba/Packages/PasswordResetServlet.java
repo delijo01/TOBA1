@@ -55,15 +55,17 @@ public class PasswordResetServlet extends HttpServlet {
         String url = "/password_reset.jsp";
 
         // get parameters from the request        
-        //String firstname = request.getParameter("firstname");
-        //String lastname = request.getParameter("lastname");
-        //String username = request.getParameter("username");
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
     
         //create the session scope
         HttpSession session = request.getSession();
+        session.setAttribute("firstname", firstname);
+        session.setAttribute("lastname", lastname);
+        session.setAttribute("username", username);
         
- 
         String message;
 
         //use a condition to validate the parameters
@@ -88,12 +90,13 @@ public class PasswordResetServlet extends HttpServlet {
             //set the variable message
             message = "";
             
+            session.setAttribute("firstname", firstname);
+            session.setAttribute("lastname", lastname);
+            session.setAttribute("username", username);
+            
             User user = (User) session.getAttribute("user");
             // store data in User object
-            //user.setFirstName(firstname);
-            //user.setLastName(lastname);
-            //user.setUserName(username);
-            //user.setPassword(password);
+            user.setPassword(password);
             //call UserDb for future coding
             UserDB.update(user);
             //set the url

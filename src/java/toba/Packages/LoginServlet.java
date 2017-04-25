@@ -55,6 +55,9 @@ public class LoginServlet extends HttpServlet {
         
         //create the session scope
         HttpSession session = request.getSession();
+        //set the session attributes
+        session.setAttribute("username", username);
+        session.setAttribute("password", password);
         //set the userid
         //String userid = "jsmith@toba.com";
         String userid = (String) session.getAttribute("username");
