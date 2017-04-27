@@ -21,22 +21,39 @@ and open the template in the editor.
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <!-- Add the header to the page -->
 <c:import url="/includes/header.html" />
-<html>
-    <head>
-        <!--Add Page Title-->
-        <title>TOBA Titan Online Banking Application</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/main.css" type="text/css"/>
-    </head>
-    <body>
-        <div>
+        <form action="TransactionServlet" method="post">
         <!-- Create a header for the Transaction page  -->
             <header>
                 <h1>Transactions</h1>
+                <p>Transfer Funds Page</p>
             </header>
-        </div>
-    </body>
-</html>
+            <c:if test="${message != null}">
+                <p><i>${message}</i></p>
+            </c:if>
+                <input type="hidden" name="action" value="transferfunds" >
+                <label>First Name:</label>
+                <span>${user.firstName}</span><br>
+                <label>Last Name:</label>
+                <span>${user.lastName}</span><br>
+                <label>Current Checking Balance:</label>
+                <span>${account.Checking}</span><br>
+                <label>Current Savings Balance:</label>
+                <span>${account.Savings}</span><br>
+                <label>Transfer From:</label>
+                <select name="transferfrom">
+                    <option value="Checking">Checking</option>
+                    <option value="Savings">Savings</option>
+                </select></br>
+                <label>Transfer To:</label>
+                <select name="transferto">
+                    <option value="Checking">Checking</option>
+                    <option value="Savings">Savings</option>
+                </select></br></br>
+                <label for="transferamount">Amount to Transfer ($)</label>
+                <input type="text" name="transferamount">
+                </br></br>
+                <input type="submit" value ="Transfer">
+            </br>
+        </form>
 <!-- Add the footer to the page -->        
 <c:import url="/includes/footer.jsp" />

@@ -10,6 +10,11 @@ import javax.persistence.Entity; //adding the persistence libraries
 import javax.persistence.GeneratedValue; //adding the persistence libraries
 import javax.persistence.GenerationType; //adding the persistence libraries
 import javax.persistence.Id; //adding the persistence libraries
+
+import toba.Beans.Account; //adding the Account library
+import toba.Data.AccountDB; //adding the AccountDB library
+import toba.Data.Transaction; //adding the Transaction library
+
 /**
     Name: John M Delia Jr
     SPC Student ID: 434299
@@ -46,14 +51,6 @@ public class User implements Serializable{
     private String userName;
     private String password;
     
-    //create the get for the User ID
-    public Long getUserId() {
-        return userId;
-    }
-    //create the set for the User ID
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
     
     //create the zero argument constructor
     public User(){
@@ -69,7 +66,8 @@ public class User implements Serializable{
         password = "";
     }
     //create a constructor for User
-    public User(String firstName, String lastName, String phone, String address, String city, String state, String zip, String email, String userName, String password){
+    public User(String firstName, String lastName, String phone, String address, 
+            String city, String state, String zip, String email, String userName, String password){
         //connect the variables
         this.firstName = firstName;
         this.lastName = lastName;
@@ -81,6 +79,15 @@ public class User implements Serializable{
         this.email = email;
         this.userName = userName;
         this.password = password;
+    }
+    
+    //create the get for the User ID
+    public Long getUserId() {
+        return userId;
+    }
+    //create the set for the User ID
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
     //Create the first name get method
     public String getFirstName(){
@@ -172,5 +179,13 @@ public class User implements Serializable{
         //connect the variable
         this.password = password;
     }
-            
+    
+    //create the method to pull the user acct infor
+    public Account getAcct(Account.AcctType type){
+        for(Account a: AccountDB.findByUserId(this.getUserId(), null)){
+            if (a.getAcctType().equals(type))
+                return a;
+        }
+        return null;
+    }
 }

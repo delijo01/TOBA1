@@ -65,7 +65,9 @@ public class PasswordResetServlet extends HttpServlet {
         session.setAttribute("firstname", firstname);
         session.setAttribute("lastname", lastname);
         session.setAttribute("username", username);
-        
+        //set the session attributes
+        User user = (User) session.getAttribute("user");
+        //set the variable
         String message;
 
         //use a condition to validate the parameters
@@ -85,16 +87,19 @@ public class PasswordResetServlet extends HttpServlet {
                 //close the html connection
             //    htmlnote.close();
             //}
-        } 
+        } else if ( user == null ) {
+            //redirect user if not in database
+            url = "/new_customer.jsp;";
+        }
         else {
             //set the variable message
             message = "";
+            //moved data before condition to be accounted for in the if user == null condition
+            //session.setAttribute("firstname", firstname);
+            //session.setAttribute("lastname", lastname);
+            //session.setAttribute("username", username);          
+            //User user = (User) session.getAttribute("user");
             
-            session.setAttribute("firstname", firstname);
-            session.setAttribute("lastname", lastname);
-            session.setAttribute("username", username);
-            
-            User user = (User) session.getAttribute("user");
             // store data in User object
             user.setPassword(password);
             //call UserDb for future coding

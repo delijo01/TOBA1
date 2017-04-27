@@ -73,10 +73,7 @@ public class NewCustomerServlet extends HttpServlet {
         String username = lastname + zipcode;
         String password = "welcome1"; 
         
-        //create variables for beginning bal for Checking and Savings
-        double inBalCheck = 0.00;
-        double inBalSavings = 25.00;
-        
+       
         //create the session scope
         HttpSession session = request.getSession();
         
@@ -112,23 +109,20 @@ public class NewCustomerServlet extends HttpServlet {
             message = "";
             // store data in User object
             User user = new User(firstname, lastname, phone, address, city, state, zipcode, email, username, password);
+            //create variables for beginning bal for Checking and Savings
+            Account checking = new Account(user, Account.AcctType.CHECKING, 0.00);
+            Account savings = new Account(user, Account.AcctType.SAVINGS, 25.00);
             //inserting the user info the User DB
             UserDB.insert(user);
-            // store data in Account object
-            Account account = new Account();
-            //account.setUser(user);
-            //account.getChecking(inBalCheck);
-            //account.setPassword(password);
             //insertng the account info in the account DB
-            AccountDB.insert(account);
+            AccountDB.insert(checking);
+            AccountDB.insert(savings);
             //set the url
             url = "/Success.jsp";
             //set the message attributes
             request.setAttribute("message", message);
             //set the user Attributes to sesson scope
             session.setAttribute("user", user);
-            //set the account Attributes to sesson scope
-            session.setAttribute("account", account);
         }
 
         //get the information from the form

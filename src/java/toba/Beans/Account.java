@@ -50,12 +50,12 @@ public class Account implements Serializable{
     private User user;
 
     
-    public User getUser(){
-        return user;
-    }
-    public void setUser(User user){
-        this.user = user;
-    }
+//    public User getUser(){
+//        return user;
+//    }
+//    public void setUser(User user){
+//        this.user = user;
+//    }
     
     @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
     private ArrayList<Transaction> transaction;
