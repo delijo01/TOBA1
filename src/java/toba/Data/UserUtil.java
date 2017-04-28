@@ -16,7 +16,7 @@ import javax.persistence.Persistence;
 
 public class UserUtil {
     private static final EntityManagerFactory emf =
-        Persistence.createEntityManagerFactory("UserPU");
+        Persistence.createEntityManagerFactory("TOBAPU");
     
     public static EntityManagerFactory getEmFactory() {
         return emf;

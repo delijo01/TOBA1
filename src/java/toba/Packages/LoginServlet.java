@@ -54,10 +54,8 @@ public class LoginServlet extends HttpServlet {
         String url = "/index.jsp";
         //idenifying the user with connection to server
         User selUser = UserDB.selectUser(username);
-        //create the session scope
-        HttpSession session = request.getSession();
         //set the session attributes
-        User user = (User)session.getAttribute("user");
+        //User user = (User)session.getAttribute("user");
         
         //from Assignment 1
         //set the userid
@@ -67,12 +65,14 @@ public class LoginServlet extends HttpServlet {
         
         //Create a condition to look for the username and password specified
         //or redirect if the user is null
-        if( user == null ) {
+        if( selUser == null ) {
             url = "/new_customer.jsp;";
         } else if( username.equals(selUser.getUserName()) && 
                 password.equals(selUser.getPassword()) ) {
 //        } else if( username.equals(user.getUserName()) && 
-//                password.equals(user.getPassword()) ) 
+//                password.equals(user.getPassword()) )
+            //create the session scope
+            HttpSession session = request.getSession();
             //pull the session for the Specified User
             session.setAttribute("user", selUser);
             //set the url
