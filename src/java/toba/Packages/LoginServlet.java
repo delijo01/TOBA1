@@ -46,6 +46,8 @@ public class LoginServlet extends HttpServlet {
         
         //set the Content Type
         response.setContentType("text/html;charset=UTF-8");
+        //set variable to current action
+        String action = request.getParameter("action");
         
         // get parameters from the request
         String username = request.getParameter("username");
@@ -76,7 +78,9 @@ public class LoginServlet extends HttpServlet {
             //pull the session for the Specified User
             session.setAttribute("user", selUser);
             //set the url
-            url = "/Account_activity.jsp";
+            //url = "/Account_activity.jsp";
+            url = "/mmindex.jsp";
+
         } else {
             //set the url
             url = "/Login_failure.jsp";

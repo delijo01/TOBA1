@@ -43,14 +43,24 @@ and open the template in the editor.
                 <!--Created the input for the Username type = text-->
                 <input type="password" id="txtPW1" name="password"><br><br>
                 <!--Created a login button for the page-->
+                <c:if test="New Customer">
+                        <input type="hidden" name="action" value="New Customer" >
+                </c:if>
+                <c:if test="Account Activity">
+                        <input type="hidden" name="action" value="Account Activity" >
+                    </c:if>
+                <c:if test="Transaction">
+                        <input type="hidden" name="action" value="Transaction" >
+                </c:if>
                 <input type="submit" value ="Login">
                 <!--Created a reset button to allow the user to cancel the entry-->
                 <input type="reset" name="cancel" value ="Cancel Entry"><br><br>
                 <!--Created a link to allow the user to reset their password-->
                 <a href="password_reset.jsp?action=LoginServlet">Password Reset</a><br><br>
                 <!--Created a New Customer link to allow the user to be added to the list-->
-                <a href="New_customer.jsp?action=LoginServlet">New Customer Sign Up</a>
+                <a href="New_customer.jsp?action=LoginServlet">New Customer Sign Up</a><br><br>
             </form>
+            <a href="Transaction.jsp">Transaction</a>
         </div>
 <!-- Add the footer to the page -->        
 <c:import url="/includes/footer.jsp" />

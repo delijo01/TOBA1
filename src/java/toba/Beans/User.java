@@ -15,6 +15,7 @@ import toba.Beans.Account; //adding the Account library
 import toba.Data.AccountDB; //adding the AccountDB library
 import toba.Data.Transaction; //adding the Transaction library
 
+
 /**
     Name: John M Delia Jr
     SPC Student ID: 434299
@@ -179,13 +180,24 @@ public class User implements Serializable{
         //connect the variable
         this.password = password;
     }
+    //Create the get method for the Checking Balance
+    public String getCheckingBalance(){
+        Account checking = this.getAcct(Account.AcctType.CHECKING);
+        return checking.getBalanceCurrencyFormat();
+    }
+    //Create the get method for the Savings Balance
+    public String getSavingsBalance(){
+        Account savings = this.getAcct(Account.AcctType.SAVINGS);
+        return savings.getBalanceCurrencyFormat();
+    }
     
     //create the method to pull the user acct infor
     public Account getAcct(Account.AcctType type){
-        for(Account a: AccountDB.findByUserId(this.getUserId(), null)){
-            if (a.getAcctType().equals(type))
-                return a;
-        }
-        return null;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //for(Account a: AccountDB.findByUserId(this.getUserId(), null)){
+        //    if (a.getAcctType().equals(type))
+        //        return a;
+        //}
+        //return null;
     }
 }
