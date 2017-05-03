@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class mmindex_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -80,26 +80,29 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <!-- Create a header for the Index page  -->\n");
       out.write("            <header>\n");
       out.write("                <h1>Titan Online Banking Application</h1>\n");
-      out.write("            </header>\n");
+      out.write("            </header><br>\n");
       out.write("            <section>\n");
       out.write("                <!--Create a form for the Index Process-->\n");
-      out.write("                <form action=\"Login.jsp\" method=\"post\">\n");
-      out.write("                    <!-- Setup navigation menu for the other pages-->\n");
-      out.write("                    <input type=\"submit\" value =\"Login\">\n");
-      out.write("                </form><br>\n");
       out.write("                <form action=\"New_customer.jsp\" method=\"post\">\n");
       out.write("                    <!-- Setup navigation menu for the other pages-->\n");
       out.write("                    <input type=\"submit\" value =\"New Customer\">\n");
-      out.write("                    <!--<input type=\"submit\" value =\"Account Activity\">-->\n");
-      out.write("                    <!--<input type=\"submit\" value =\"Transaction\">-->\n");
-      out.write("                </form>\n");
+      out.write("                </form><br>\n");
+      out.write("                <form action=\"Account_activity.jsp\" method=\"post\">\n");
+      out.write("                    <!-- Setup navigation menu for the other pages-->\n");
+      out.write("                    <input type=\"submit\" value =\"Account Activity\">\n");
+      out.write("                </form><br>\n");
+      out.write("                <form action=\"Transaction.jsp\" method=\"post\">\n");
+      out.write("                    <!-- Setup navigation menu for the other pages-->\n");
+      out.write("                    <input type=\"submit\" value =\"Transaction\">\n");
+      out.write("                </form><br>\n");
       out.write("            </section>\n");
       out.write("        </div>\n");
       out.write("        <!-- Add the footer to the page -->        \n");
       if (_jspx_meth_c_import_1(_jspx_page_context))
         return;
-      out.write('\n');
-      out.write('\n');
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
